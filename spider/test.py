@@ -102,7 +102,7 @@ def process_single_member(row, helper):
     image_link = 'http://www.snh48.com/images/member/zp_%d.jpg' % id
     hobby = unicode_to_chinese(row['hobby'])
     description = unicode_to_chinese(row['experience']).replace('<br>', '\r\n')
-    is_valid = int(unicode_to_chinese(row['status']))
+    is_valid = mapping_status[unicode_to_chinese(row['status'])]
     constellation = unicode_to_chinese(row['star_sign_12'])
     birth_place = unicode_to_chinese(row['birth_place'])
     agency = unicode_to_chinese(row['company'])
@@ -115,9 +115,10 @@ def process_single_member(row, helper):
             `english_name`=\'%s\', `join_time`=\'%s\', `link`=\'%s\', 
             `image_link`=\'%s\', `hobby`=\'%s\', `description`=\'%s\', 
             `constellation`=\'%s\',`birth_place`=\'%s\', `agency`=\'%s\', 
-            `speciality`=\'%s\' WHERE `id`=%d """ % \
+            `speciality`=\'%s\', `is_valid`=%d WHERE `id`=%d """ % \
           (name, nick_name, height, blood_type, team, batch, english_name, join_time,
-        link, image_link, hobby, description, constellation, birth_place, agency, speciality, id)
+        link, image_link, hobby, description, constellation, birth_place, agency, speciality,
+           is_valid, id)
 
     print sql
     helper.execute(sql)
