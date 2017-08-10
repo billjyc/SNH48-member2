@@ -29,7 +29,7 @@ prod_config = {
     'host': '112.74.183.47',
     'port': 3306,
     'db': 'snh48',
-    'raise_on_warnings': True,
+    'use_unicode': True,
     'charset': 'utf8',
 }
 
