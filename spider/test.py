@@ -132,7 +132,7 @@ def unicode_to_chinese(uni):
 class MySQLHelper:
     def __init__(self):
         try:
-            self.connection = MySQLdb.connect(**test_config)
+            self.connection = MySQLdb.connect(**prod_config)
         except Exception as e:
             logging.exception(e)
 
