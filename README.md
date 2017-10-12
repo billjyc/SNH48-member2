@@ -1,4 +1,4 @@
-# SHN48-member2
+# SNH48-member2
 snh48.com成员信息爬取
 
 <p>
