@@ -7,7 +7,7 @@ import json
 import sys
 
 from spider.global_config import mapping_team, mapping_status, urls
-from spider.mysql_helper import MySQLHelper
+from spider.mysql_helper import mysql_helper
 
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -38,13 +38,13 @@ mapping_column = {
 }
 
 
-def process_group(group_json, helper):
+def process_group(group_json):
     rows = group_json['rows']
     for row in rows:
-        process_single_member(row, helper)
+        process_single_member(row)
 
 
-def process_single_member(row, helper):
+def process_single_member(row):
     id = int(unicode_to_chinese(row['sid']))
     name = unicode_to_chinese(row['sname'])
     nick_name = unicode_to_chinese(row['nickname'])
@@ -78,7 +78,7 @@ def process_single_member(row, helper):
            is_valid, pid, id)
 
     print sql
-    helper.execute(sql)
+    mysql_helper.execute(sql)
     print 'update'
     # print row
 
@@ -88,7 +88,6 @@ def unicode_to_chinese(uni):
 
 
 if __name__ == '__main__':
-    helper = MySQLHelper()
     for url in urls:
         req = urllib2.Request(url)
         response = urllib2.urlopen(req)
@@ -98,7 +97,7 @@ if __name__ == '__main__':
         response.close()
 
         print s_json
-        process_group(s_json, helper)
+        process_group(s_json)
 
     # helper.commit()
-    helper.close_connection()
+    mysql_helper.close_connection()

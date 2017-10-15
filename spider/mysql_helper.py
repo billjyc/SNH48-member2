@@ -32,16 +32,37 @@ class MySQLHelper:
             logging.exception(e)
 
     def execute(self, sql):
-        cursor = self.connection.cursor()
+        """
+        针对insert, delete, update操作
+        :param sql:
+        :return:
+        """
         try:
+            cursor = self.connection.cursor()
             cursor.execute(sql)
             self.connection.commit()
         except Exception as e:
             logging.exception(e)
             self.connection.rollback()
 
+    def select(self, sql):
+        """
+        读操作
+        :param sql:
+        :return:
+        """
+        try:
+            cursor = self.connection.cursor()
+            cursor.execute(sql)
+            return cursor.fetchall()
+        except Exception as e:
+            logging.exception(e)
+
     def commit(self):
         self.connection.commit()
 
     def close_connection(self):
         self.connection.close()
+
+
+mysql_helper = MySQLHelper()
