@@ -1,10 +1,9 @@
-# !/usr/bin/python
-# coding:utf-8
+
 import urllib2
 import json
-import MySQLdb
 import sys
-import logging
+
+from spider.mysql_helper import MySQLHelper
 
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -13,25 +12,6 @@ sys.setdefaultencoding('utf8')
 # opener = urllib2.build_opener(urllib2.ProxyHandler({'http': proxy}))
 # urllib2.install_opener(opener)
 
-test_config = {
-    'user': 'root',
-    'passwd': 'root',
-    'host': '127.0.0.1',
-    'port': 3306,
-    'db': 'snh48',
-    'charset': 'utf8',
-    'use_unicode': True
-}
-
-prod_config = {
-    'user': 'root',
-    'passwd': 'Jyc@1993',
-    'host': '112.74.183.47',
-    'port': 3306,
-    'db': 'snh48',
-    'use_unicode': True,
-    'charset': 'utf8',
-}
 
 urls = [
     'http://h5.snh48.com/resource/jsonp/members.php?gid=10',  # 上海
@@ -128,28 +108,6 @@ def process_single_member(row, helper):
 
 def unicode_to_chinese(uni):
     return str(uni).encode('utf-8')
-
-
-class MySQLHelper:
-    def __init__(self):
-        try:
-            self.connection = MySQLdb.connect(**prod_config)
-        except Exception as e:
-            logging.exception(e)
-
-    def execute(self, sql):
-        cursor = self.connection.cursor()
-        try:
-            cursor.execute(sql)
-            self.connection.commit()
-        except:
-            self.connection.rollback()
-
-    def commit(self):
-        self.connection.commit()
-
-    def close_connection(self):
-        self.connection.close()
 
 
 helper = MySQLHelper()
