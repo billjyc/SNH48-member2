@@ -37,6 +37,7 @@ class MySQLHelper:
             cursor.execute(sql)
             self.connection.commit()
         except Exception as e:
+            logging.exception(e)
             self.connection.rollback()
 
     def commit(self):
