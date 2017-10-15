@@ -4,6 +4,7 @@ from weibo import APIClient
 import webbrowser
 import requests
 import logging
+import datetime
 
 from mysql_helper import mysql_helper
 from apscheduler.schedulers.background import BackgroundScheduler, BlockingScheduler
@@ -72,10 +73,13 @@ def update_member_weibo_info():
             """ % (followers_count, friends_count, statuses_count, uid)
             mysql_helper.execute(sql1)
 
+            update_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
             sql2 = """
-                INSERT INTO weibo_data_history (`id`, `weibo_id`, `followers_count`, `friends_count`, `statuses_count`)
-                    VALUES (%d, %d, %d, %d, %d)
-            """ % (weibouid_id_map[uid], uid, followers_count, friends_count, statuses_count)
+                INSERT INTO weibo_data_history (`id`, `weibo_id`, `followers_count`, `friends_count`, `statuses_count`,
+                    `update_time`)
+                    VALUES (%d, %d, %d, %d, %d, \'%s\')
+            """ % (weibouid_id_map[uid], uid, followers_count, friends_count, statuses_count, update_time)
             mysql_helper.execute(sql2)
         cur += size
 
@@ -86,7 +90,7 @@ if __name__ == '__main__':
     code = raw_input()
     get_access_token(code)
     scheduler = BlockingScheduler()
-    scheduler.add_job(update_member_weibo_info, 'cron', minute='*/2')
+    scheduler.add_job(update_member_weibo_info, 'cron', hour='4')
 
     try:
         logging.debug('start')
