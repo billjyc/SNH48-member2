@@ -66,16 +66,34 @@ def process_single_member(row):
     pid = int(row['pid'])
     # print id, name, description
 
-    sql = """ update memberinfo
-            SET `name`=\'%s\', `nick_name`=\'%s\', `height`=\'%s\', `blood_type`=\'%s\',
+    # sql = """ update memberinfo
+    #         SET `name`=\'%s\', `nick_name`=\'%s\', `height`=\'%s\', `blood_type`=\'%s\',
+    #         `team`=%d, `batch`=\'%s\',
+    #         `english_name`=\'%s\', `join_time`=\'%s\', `link`=\'%s\',
+    #         `image_link`=\'%s\', `hobby`=\'%s\', `description`=\'%s\',
+    #         `constellation`=\'%s\',`birth_place`=\'%s\', `agency`=\'%s\',
+    #         `speciality`=\'%s\', `is_valid`=%d, `pid`=%d WHERE `id`=%d """ % \
+    #       (name, nick_name, height, blood_type, team, batch, english_name, join_time,
+    #     link, image_link, hobby, description, constellation, birth_place, agency, speciality,
+    #        is_valid, pid, id)
+
+    sql = """ INSERT INTO memberinfo (`id`, `name`, `nick_name`, `height`, `blood_type`, `team`, `batch`, `english_name`,
+    `join_time`, `link`, `image_link`, `hobby`, `description`, `constellation`, `birth_place`, `agency`, 
+    `speciality`, `is_valid`, `pid`) VALUES 
+    (%d, \'%s\', \'%s\', \'%s\', \'%s\', %d, \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\',\'%s\', \'%s\', \'%s\',
+    \'%s\', %d, %d) ON DUPLICATE KEY UPDATE `name`=\'%s\', `nick_name`=\'%s\', `height`=\'%s\', `blood_type`=\'%s\',
             `team`=%d, `batch`=\'%s\', 
             `english_name`=\'%s\', `join_time`=\'%s\', `link`=\'%s\', 
             `image_link`=\'%s\', `hobby`=\'%s\', `description`=\'%s\', 
             `constellation`=\'%s\',`birth_place`=\'%s\', `agency`=\'%s\', 
-            `speciality`=\'%s\', `is_valid`=%d, `pid`=%d WHERE `id`=%d """ % \
-          (name, nick_name, height, blood_type, team, batch, english_name, join_time,
-        link, image_link, hobby, description, constellation, birth_place, agency, speciality,
-           is_valid, pid, id)
+            `speciality`=\'%s\', `is_valid`=%d, `pid`=%d""" % \
+          (id, name, nick_name, height, blood_type, team, batch, english_name, join_time,
+           link, image_link, hobby, description, constellation, birth_place, agency, speciality,
+           is_valid, pid,
+           name, nick_name, height, blood_type, team, batch, english_name, join_time,
+           link, image_link, hobby, description, constellation, birth_place, agency, speciality,
+           is_valid, pid
+           )
 
     print sql
     mysql_helper.execute(sql)

@@ -7,6 +7,8 @@ urls = [
     # 'http://h5.snh48.com/resource/jsonp/members.php?gid=20',  # 北京
     # 'http://h5.snh48.com/resource/jsonp/members.php?gid=30',  # 广州
     # 'http://h5.snh48.com/resource/jsonp/members.php?gid=40'  # 沈阳
+    # 'http://h5.snh48.com/resource/jsonp/members.php?gid=50'  # 重庆
+    # 'http://h5.snh48.com/resource/jsonp/members.php?gid=70'  # IDFT
 ]
 
 mapping_status = {
@@ -29,6 +31,10 @@ mapping_team = {
     'G': 301,
     'NIII': 302,
     'Z': 303,
+    '新成员': 304,
     'SIII': 401,
-    'HIII': 402
+    'HIII': 402,
+    'C': 501,
+    'K': 502,
+    'idft': 701
 }
