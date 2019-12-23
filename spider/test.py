@@ -54,8 +54,12 @@ def process_single_member(row):
     batch = unicode_to_chinese(row['pname'])
     english_name = unicode_to_chinese(row['pinyin'])
     join_time = unicode_to_chinese(row['join_day'])
-    link = 'http://www.snh48.com/member_details.html?sid=%d' % id
-    image_link = 'http://www.snh48.com/images/member/zp_%d.jpg' % id
+    if id > 70000:
+        link = 'https://idft.snh48.com/member-detail.html?sid=%d' % id
+        image_link = 'https://idft.snh48.com/image/member/zp_%d.jpg' % id
+    else:
+        link = 'http://www.snh48.com/member_details.html?sid=%d' % id
+        image_link = 'http://www.snh48.com/images/member/zp_%d.jpg' % id
     hobby = unicode_to_chinese(row['hobby'])
     description = unicode_to_chinese(row['experience']).replace('<br>', '\r\n')
     is_valid = mapping_status[unicode_to_chinese(row['status'])]
