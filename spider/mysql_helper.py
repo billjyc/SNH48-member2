@@ -14,9 +14,9 @@ test_config = {
 }
 
 prod_config = {
-    'user': 'root',
-    'passwd': 'Jyc@1993',
-    'host': '112.74.183.47',
+    'user': '****',
+    'passwd': '***',
+    'host': '****',
     'port': 3306,
     'db': 'snh48',
     'use_unicode': True,
