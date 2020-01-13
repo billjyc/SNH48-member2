@@ -10,3 +10,4 @@ gen
 .gitignore
 .idea/vcs.xml
 .idea/workspace.xml
+venv/

@@ -3,7 +3,7 @@
 
 
 urls = [
-    # 'http://h5.snh48.com/resource/jsonp/members.php?gid=10',  # 上海
+    'http://h5.snh48.com/resource/jsonp/members.php?gid=10',  # 上海
     # 'http://h5.snh48.com/resource/jsonp/members.php?gid=20',  # 北京
     # 'http://h5.snh48.com/resource/jsonp/members.php?gid=30',  # 广州
     # 'http://h5.snh48.com/resource/jsonp/members.php?gid=40'  # 沈阳

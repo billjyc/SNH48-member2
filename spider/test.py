@@ -2,15 +2,15 @@
 # coding:utf-8
 
 
-import urllib2
+import requests
 import json
 import sys
 
 from spider.global_config import mapping_team, mapping_status, urls
 from spider.mysql_helper import mysql_helper
 
-reload(sys)
-sys.setdefaultencoding('utf8')
+# reload(sys)
+# sys.setdefaultencoding('utf8')
 
 # proxy = 'proxy.tencent.com:8080'
 # opener = urllib2.build_opener(urllib2.ProxyHandler({'http': proxy}))
@@ -99,27 +99,19 @@ def process_single_member(row):
            is_valid, pid
            )
 
-    print sql
+    print(sql)
     mysql_helper.execute(sql)
-    print 'update'
-    # print row
+    print('update')
 
 
 def unicode_to_chinese(uni):
-    return str(uni).encode('utf-8')
+    return uni
 
 
 if __name__ == '__main__':
     for url in urls:
-        req = urllib2.Request(url)
-        response = urllib2.urlopen(req)
-        s = response.read()
-        # 转换成json
-        s_json = json.loads(s, encoding='utf-8')
-        response.close()
-
-        print s_json
+        s_json = requests.get(url).json()
+        print(s_json)
         process_group(s_json)
 
-    # helper.commit()
     mysql_helper.close_connection()
