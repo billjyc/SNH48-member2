@@ -6,7 +6,7 @@ import requests
 import logging
 import datetime
 
-from mysql_helper import mysql_helper
+from spider.mysql_helper import mysql_helper
 from apscheduler.schedulers.background import BackgroundScheduler, BlockingScheduler
 
 
@@ -18,7 +18,7 @@ client = APIClient(app_key=APP_KEY, app_secret=APP_SECRET, redirect_uri=CALLBACK
 
 def init():
     url = client.get_authorize_url()
-    print url
+    print(url)
     # TODO: redirect to url
     # webbrowser.open(url)
     # r = requests.get(url, allow_redirects=False)
@@ -54,7 +54,7 @@ def update_member_weibo_info():
 
     cur = 0
     while cur < length:
-        print cur
+        print(cur)
         size = min(length, cur + 100)
         uids = ''
         for i in range(cur, size):
@@ -86,7 +86,7 @@ def update_member_weibo_info():
 
 if __name__ == '__main__':
     init()
-    print 'code='
+    print('code=')
     code = raw_input()
     get_access_token(code)
     scheduler = BlockingScheduler()
@@ -96,6 +96,6 @@ if __name__ == '__main__':
         logging.debug('start')
         scheduler.start()
     except Exception as e:
-        print e
-        print 'shutdown'
+        print(e)
+        print('shutdown')
         scheduler.shutdown()

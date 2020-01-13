@@ -3,18 +3,9 @@
 
 
 import requests
-import json
-import sys
 
 from spider.global_config import mapping_team, mapping_status, urls
 from spider.mysql_helper import mysql_helper
-
-# reload(sys)
-# sys.setdefaultencoding('utf8')
-
-# proxy = 'proxy.tencent.com:8080'
-# opener = urllib2.build_opener(urllib2.ProxyHandler({'http': proxy}))
-# urllib2.install_opener(opener)
 
 
 mapping_column = {
