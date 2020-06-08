@@ -101,7 +101,7 @@ def unicode_to_chinese(uni):
 
 if __name__ == '__main__':
     for url in urls:
-        s_json = requests.get(url).json()
+        s_json = requests.get(url, verify=False).json()
         print(s_json)
         process_group(s_json)
 
