@@ -1,7 +1,8 @@
 # !/usr/bin/python
 # coding:utf-8
-import MySQLdb
+
 import logging
+import pymysql
 
 test_config = {
     'user': 'root',
@@ -14,20 +15,20 @@ test_config = {
 }
 
 prod_config = {
-    'user': '****',
-    'passwd': '***',
-    'host': '****',
+    'user': 'root',
+    'passwd': 'root',
+    'host': '127.0.0.1',
     'port': 3306,
     'db': 'snh48',
-    'use_unicode': True,
     'charset': 'utf8',
+    'use_unicode': True
 }
 
 
 class MySQLHelper:
     def __init__(self):
         try:
-            self.connection = MySQLdb.connect(**prod_config)
+            self.connection = pymysql.connect(**prod_config)
         except Exception as e:
             logging.exception(e)
 

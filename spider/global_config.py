@@ -4,11 +4,11 @@
 
 urls = [
     'https://h5.48.cn/resource/jsonp/members.php?gid=10',  # 上海
-    # 'https://h5.48.cn/resource/jsonp/members.php?gid=20',  # 北京
-    # 'https://h5.48.cn/resource/jsonp/members.php?gid=30',  # 广州
-    # 'https://h5.48.cn/resource/jsonp/members.php?gid=40'  # 沈阳
-    # 'https://h5.48.cn/resource/jsonp/members.php?gid=50'  # 重庆
-    # 'https://h5.48.cn/resource/jsonp/members.php?gid=70'  # IDFT
+    'https://h5.48.cn/resource/jsonp/members.php?gid=20',  # 北京
+    'https://h5.48.cn/resource/jsonp/members.php?gid=30',  # 广州
+    'https://h5.48.cn/resource/jsonp/members.php?gid=40'  # 沈阳
+    'https://h5.48.cn/resource/jsonp/members.php?gid=50'  # 重庆
+    'https://h5.48.cn/resource/jsonp/members.php?gid=70'  # IDFT
 ]
 
 mapping_status = {
@@ -21,8 +21,8 @@ mapping_team = {
     'NII': 102,
     'HII': 103,
     'X': 104,
-    'XII': 5,
-    'Ft': 6,
+    'XII': 105,
+    'Ft': 106,
     'S预备生': 150,
     '荣誉毕业生': 199,
     '未入列': 149,
