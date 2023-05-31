@@ -48,6 +48,9 @@ def process_single_member(row):
     if id > 70000:
         link = 'https://idft.snh48.com/member-detail.html?sid=%d' % id
         image_link = 'https://idft.snh48.com/image/member/zp_%d.jpg' % id
+    elif 50000 < id < 60000:
+        link = 'http://www.ckg48.com/member_details.html?sid=%d' % id
+        image_link = 'http://www.ckg48.com/images/members/zp_%d.jpg' % id
     else:
         link = 'http://www.snh48.com/member_details.html?sid=%d' % id
         image_link = 'http://www.snh48.com/images/member/zp_%d.jpg' % id
