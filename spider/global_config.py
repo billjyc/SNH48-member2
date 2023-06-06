@@ -3,12 +3,13 @@
 
 
 urls = [
-    'https://h5.48.cn/resource/jsonp/members.php?gid=10',  # 上海
-    'https://h5.48.cn/resource/jsonp/members.php?gid=20',  # 北京
-    'https://h5.48.cn/resource/jsonp/members.php?gid=30',  # 广州
-    'https://h5.48.cn/resource/jsonp/members.php?gid=40'  # 沈阳
-    'https://h5.48.cn/resource/jsonp/members.php?gid=50'  # 重庆
-    'https://h5.48.cn/resource/jsonp/members.php?gid=70'  # IDFT
+    # 'https://h5.48.cn/resource/jsonp/members.php?gid=10',  # 上海
+    # 'https://h5.48.cn/resource/jsonp/members.php?gid=20',  # 北京
+    # 'https://h5.48.cn/resource/jsonp/members.php?gid=30',  # 广州
+    # 'https://h5.48.cn/resource/jsonp/members.php?gid=40'  # 沈阳
+    # 'https://h5.48.cn/resource/jsonp/members.php?gid=50'  # 重庆
+    'https://h5.48.cn/resource/jsonp/members.php?gid=60'  # 成都
+    # 'https://h5.48.cn/resource/jsonp/members.php?gid=70'  # IDFT
 ]
 
 mapping_status = {
@@ -46,5 +47,8 @@ mapping_team = {
     'C': 501,
     'K': 502,
     'CKG48': 505,
+    'C预备生': 510,
+    'CII': 601,
+    "GII": 602,
     'idft': 701
 }
