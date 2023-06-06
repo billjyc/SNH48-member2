@@ -41,7 +41,8 @@ def process_single_member(row):
     nick_name = unicode_to_chinese(row['nickname'])
     height = int(unicode_to_chinese(row['height']))
     blood_type = unicode_to_chinese(row['blood_type'])
-    team = mapping_team[unicode_to_chinese(row['tname'])]
+    # team = mapping_team[unicode_to_chinese(row['tname'])]
+    team = int(row['tid'])
     batch = unicode_to_chinese(row['pname'])
     english_name = unicode_to_chinese(row['pinyin'])
     join_time = unicode_to_chinese(row['join_day'])
