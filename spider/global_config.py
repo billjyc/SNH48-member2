@@ -3,11 +3,11 @@
 
 
 urls = [
-    # 'https://h5.48.cn/resource/jsonp/members.php?gid=10',  # 上海
-    # 'https://h5.48.cn/resource/jsonp/members.php?gid=20',  # 北京
-    # 'https://h5.48.cn/resource/jsonp/members.php?gid=30',  # 广州
+    'https://h5.48.cn/resource/jsonp/members.php?gid=10',  # 上海
+    'https://h5.48.cn/resource/jsonp/members.php?gid=20',  # 北京
+    'https://h5.48.cn/resource/jsonp/members.php?gid=30',  # 广州
     # 'https://h5.48.cn/resource/jsonp/members.php?gid=40'  # 沈阳
-    # 'https://h5.48.cn/resource/jsonp/members.php?gid=50'  # 重庆
+    'https://h5.48.cn/resource/jsonp/members.php?gid=50'  # 重庆
     'https://h5.48.cn/resource/jsonp/members.php?gid=60'  # 成都
     # 'https://h5.48.cn/resource/jsonp/members.php?gid=70'  # IDFT
 ]
@@ -33,7 +33,7 @@ mapping_team = {
     'B': 201,
     'E': 202,
     'J': 203,
-    '预备生': 210,
+    # '预备生': 210,
     'BEJ48': 211,
     'G': 301,
     'NIII': 302,
@@ -50,5 +50,6 @@ mapping_team = {
     'C预备生': 510,
     'CII': 601,
     "GII": 602,
+    "预备生": 610,
     'idft': 701
 }

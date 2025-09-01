@@ -1,12 +1,12 @@
 # !/usr/bin/python
 # coding:utf-8
-
+import time
 
 import requests
 
-from spider.global_config import mapping_team, mapping_status, urls
+import spider.utils as utils
+from spider.global_config import mapping_status
 from spider.mysql_helper import mysql_helper
-
 
 mapping_column = {
     'sid': 'id',
@@ -104,9 +104,18 @@ def unicode_to_chinese(uni):
 
 
 if __name__ == '__main__':
-    for url in urls:
-        s_json = requests.get(url, verify=False).json()
-        print(s_json)
-        process_group(s_json)
+    url = 'https://h5.48.cn/resource/jsonp/allmembers.php'
+    params = {
+        'gid': '00',
+        'callback': 'get_members_success',
+        '_': int(time.time() * 1000)
+    }
+    res = requests.get(url, params=params)
+    s_json = utils.process_str_to_json(res.text)
+    process_group(s_json)
+    # for url in urls:
+    #     s_json = requests.get(url, verify=False).json()
+    #     print(s_json)
+    #     process_group(s_json)
 
     mysql_helper.close_connection()
