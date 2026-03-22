@@ -47,11 +47,23 @@ def process_single_member(row):
     english_name = unicode_to_chinese(row['pinyin'])
     join_time = unicode_to_chinese(row['join_day'])
     if id > 70000:
-        link = 'https://idft.snh48.com/member-detail.html?sid=%d' % id
+        link = 'https://idft.snh48.com/member-detail.html?id=%d' % id
         image_link = 'https://idft.snh48.com/image/member/zp_%d.jpg' % id
+    elif 40000 < id < 50000:
+        link = 'http://www.snh48.com/member_details.html?sid=%d#CGT' % id
+        image_link = 'http://www.snh48.com/images/member/zp_%d.jpg' % id
     elif 50000 < id < 60000:
-        link = 'http://www.ckg48.com/member_details.html?sid=%d' % id
-        image_link = 'http://www.ckg48.com/images/member/zp_%d.jpg' % id
+        link = 'http://www.snh48.com/member_details.html?sid=%d#CKG' % id
+        image_link = 'http://www.snh48.com/images/member/zp_%d.jpg' % id
+    elif 30000 < id < 40000:
+        link = 'http://www.snh48.com/member_details.html?sid=%d#GNZ' % id
+        image_link = 'http://www.snh48.com/images/member/zp_%d.jpg' % id
+    elif 20000 < id < 30000:
+        link = 'http://www.snh48.com/member_details.html?sid=%d#BEJ' % id
+        image_link = 'http://www.snh48.com/images/member/zp_%d.jpg' % id
+    elif 10000 < id < 20000:
+        link = 'http://www.snh48.com/member_details.html?sid=%d#SNH' % id
+        image_link = 'http://www.snh48.com/images/member/zp_%d.jpg' % id
     else:
         link = 'http://www.snh48.com/member_details.html?sid=%d' % id
         image_link = 'http://www.snh48.com/images/member/zp_%d.jpg' % id
