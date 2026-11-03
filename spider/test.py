@@ -116,7 +116,7 @@ def unicode_to_chinese(uni):
 
 
 if __name__ == '__main__':
-    url = 'https://h5.48.cn/resource/jsonp/allmembers.php'
+    url = 'https://h5.48.cn/resource/json/allmembers_0.jsonp'
     params = {
         'gid': '00',
         'callback': 'get_members_success',
